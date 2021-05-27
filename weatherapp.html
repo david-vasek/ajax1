@@ -1,0 +1,39 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App API</title>
+</head>
+<body>
+    <h1>The Weather in Montgomery Today</h1>
+    <h2 id="weather"></h2>
+    <script src="js/scripts2.js"></script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App Solution</title>
+  </head>
+  <body>
+    <h1>Today's Weather Condition in Houston</h1>
+    <h2 id="weather">Loading</h2>
+    <script>
+      fetch(
+        "https://api.openweathermap.org/data/2.5/weather?q=Montgomery&appid=3c2facbbe498e0468ed6e5b436dcc588&units=imperial"
+      )
+        .then(response => response.json())
+        .then(body => {
+          document.getElementById("weather").innerHTML = body.main.temp + "°";
+        })
+        .catch(error => alert("Please add your api key to the fetch url"));
+    </script>
+  </body>
+</html>
